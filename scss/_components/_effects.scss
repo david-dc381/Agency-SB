@@ -1,0 +1,90 @@
+/* Hacemos el efecto Fade para la parte de trabajos realizados */
+.our-work__container, .video-box, .icon-video {
+    // .effect_left {
+        opacity: .3;
+        transition: all 2s;
+        position: relative;
+        // animation-name: izq;
+        // animation-duration: 2s;
+    // }
+
+    // .effect_right {
+    //     // opacity: .3;
+    //     transition: all 2s;
+    //     position: relative;
+    //     animation-name: dere;
+    //     animation-duration: 2s;
+    //     // animation: name duration timing-function delay iteration-count direction fill-mode;
+    // }
+}
+
+.main-banner__info {
+    // opacity: .3;
+    transition: all 2s;
+    position: relative;
+    animation-name: arriba;
+    animation-duration: 2s;
+}
+
+
+// creamos diferentes direcciones de un mismo efecto
+.transform_up {
+    // transform: translateY(-20%);
+    @keyframes arriba {
+        0% {
+            bottom: -10%;
+            opacity: .3;
+        }
+        100% {
+            bottom: 0%;
+            opacity: 1;
+        }
+    }
+}
+.transform_down {
+    transform: translateY(20%);
+}
+.transform_left {
+    transform: translateX(-20%);
+    // @keyframes izq {
+    //     0% {
+    //         right: 40%;
+    //         opacity: 0;
+    //     }
+    //     50% {
+    //         right: 10%;
+    //         opacity: 0;
+    //     }
+    //     100% {
+    //         right: 0%;
+    //         opacity: 1;
+    //     }  
+    // }
+}
+.transform_right {
+    transform: translateX(20%);
+    // @keyframes dere {
+    //     0% {
+    //         left: 40%;
+    //         opacity: 0;
+    //     }
+    //     50% {
+    //         left: 10%;
+    //         opacity: 0;
+    //     }
+    //     100% {
+    //         left: 0%;
+    //         opacity: 1;
+    //     }  
+    // }
+}
+
+
+// una vez que termine el efecto se muestre en su estado inicial
+.aparece {
+    opacity: 1;
+    transform: none;
+    // animation-name: izq;
+    // animation-duration: 3s;
+
+}

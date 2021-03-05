@@ -1,0 +1,413 @@
+main {
+    margin-top: 5rem;
+}
+.svg1 {
+    position: absolute;
+    top: 123%;
+    bottom: 0;
+    left: 0;
+    height: 3rem;
+    width: 100%;
+
+    // @include large {
+    //     top: 123%;
+    // }    
+    // @include regular {
+    //     top: 123%;
+    // }
+    // @include small{
+    //     top: 123%;
+    // }
+    // @include s-small{
+    //     top: 123%;
+    // }
+}
+/* Sección Banner */
+.main-banner {
+    &::before{
+        content: "";
+        height: 720px;
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#000000, .75);
+        
+        @include small{
+            height: 720px;
+        }
+    }
+    &__img {
+        background-image: url('../img/banner.jpg');
+        height: 720px;
+        background-position: center;
+        background-size: cover;
+    }
+    &__info {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    &__title {
+        @include font-primary-medium();
+        font-size: 3rem;
+        color: #fff;
+
+        @include small {
+            font-size: 2.5rem;
+        }
+    }
+    &__description {
+        @include font-secondary-medium();
+        color: lighten($color-secondary, 90%);
+        line-height: 2rem;
+        margin: 1.3rem 0;
+
+        @include small {
+            font-size: .9rem;
+        }
+    }
+    &__title, &__description, .main-button {
+        z-index: $z-tooltip;
+    }
+}
+/* Fin Sección Banner */
+
+/* Sección proceso de trabajo */
+.process-work {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 5rem 0;
+    &__container {
+        max-width: 400px;
+    }
+    &__title {
+        color: $color-primary;
+        line-height: 1.8;
+    }
+    &__description {
+        text-align: center;
+        width: 80%;
+        margin: auto;
+        line-height: 1.5;
+        color: $color-secondary;
+        @include font-secondary-medium();
+    }
+}
+/* Fin de proceso de trabajo */
+
+/* Video Work */
+.video-work {
+    position: relative;
+    video {
+        position: absolute;
+        top: -21rem;
+        left: 25%;
+        width: 50%;
+        z-index: $z-tooltip;
+        border: 8px solid #fff;
+        border-radius: 10px;
+        outline: none;
+        transition: all .3s ease-in;
+        @include large {
+            width: 70%;
+            left: 15%;
+        }
+        @include medium {
+            width: 80%;
+            left: 10%;
+        }
+        @include regular {
+            width: 90%;
+            left: 5%;
+        }
+        @include small {
+            width: 100%;
+            left: 0;
+            top: -18rem;
+        }
+        
+        &:hover {
+            top: -21.5rem;
+            transition: all .5s ease-out;
+        }
+    }
+
+    .icon-video {
+        z-index: $z-tooltip;
+        position: absolute;
+        top: -170px;
+        left: 50%;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        @include regular {
+            top: -250px;
+            left: 45%;
+        }
+        @include small {
+            top: -215px;
+            left: 45%;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.video-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: $z-modal;
+    background-color: rgba(#000000, .95);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+
+    video {
+        position: relative;
+        max-width: 900px;
+        outline: none;
+        @include large {
+            max-width: 90%;
+        }
+    }
+
+    i {
+        filter: invert(1);
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+        font-size: 3rem;
+    }
+}
+.active-video {
+    visibility: visible;
+}
+/* Fin video Work */
+    
+/* Enterprice work */
+.enterprice-work {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    align-content: center;
+    padding-bottom: 400px;
+    background-color: #eee;
+    margin-top: 8rem;
+    @include large {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    @include medium {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    div {
+        margin: auto;
+    }
+    img {
+        max-width: 80px;
+        padding-top: 3.5em;
+
+        @include large {
+            max-width: 60px;
+        }
+        @include small {
+            padding-top: 3rem;;
+        }
+    }
+}
+/* Fin Enterprice Work */
+
+/* Banner Team */
+.banner-team {
+    position: relative;
+    
+    &::after {
+        content: "";
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#000000, .8);
+    }
+    &__image {
+        height: 100vh;
+        background-image: url('../img/team-photo.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    &__container {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+
+        @include regular{
+            width: 90%;
+        }
+    }
+    &__description {
+        @include font-secondary-light();
+        font-size: 2.5rem;
+        color: #fff;
+        z-index: $z-tooltip;
+        span {
+            color: $button-primary;
+        }
+        
+        @include small {
+            font-size: 2rem;
+            line-height: 1.6;
+        }
+    }
+}
+/* Fin Banner Team */
+
+/* Team Work */
+.our-work {
+    padding: 5rem 0;
+    background-color: #eee;
+    @include regular{
+        padding: 0 1em;
+    }
+    
+    /* Invertimos el orden de el contenido-description y la img */
+    @include regular {
+        .our-work__body {
+            order: 2;
+        }
+        .our-work__image {
+            order: 1;
+        }
+    }
+    &__container {
+        max-width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 3rem auto;
+        border-radius: 10px;
+        box-shadow: 0px 2px 19px 0px #7b7b7b;
+        background-color: #fff;
+        
+        @include large {
+            max-width: 720px;
+        }
+        @include medium {
+            max-width: 580px;
+        }
+        @include regular{
+            max-width: 450px;
+        }
+    }
+    &__image {
+        max-width: 500px;
+        line-height: 0;
+
+        @include large {
+            max-width: 370px;
+        }
+        @include medium{
+            max-width: 320px;
+        }
+        @include regular{
+            max-width: 550px;
+        }
+        img {
+            border-radius: 10px 0 0 10px;
+            @include regular{
+                border-radius: 10px 10px 0 0;
+            }
+        }
+        .img-2 { 
+            border-radius: 0 10px 10px 0;
+            @include regular{
+                border-radius: 10px 10px 0 0;
+            }
+        }
+    }
+    &__body {
+        width: 200px;
+        margin: auto;
+        text-align: center;
+        color: $color-primary;
+
+        @include regular{
+            height: 150px;
+        }
+    }
+    &__title {
+        @include font-secondary-bold();
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+
+        @include medium {
+            font-size: 1rem;
+        }
+
+        @include regular{
+            margin-top: 1.4rem;
+        }
+    }
+    &__description {
+        margin-bottom: 1.3rem;
+        @include medium {
+            font-size: .8rem;
+        }
+    }
+}
+/* End Team Work */
+
+/* Contact Team */
+.contact-team {
+    width: 100%;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    @include font-secondary-bold();
+    &__container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__title {
+        font-size: 1.5rem;
+        line-height: 3rem;
+        color: $color-primary;
+    }
+    &__description {
+        line-height: 1.4rem;
+        color: $color-secondary;
+        width: 500px;
+        @include font-secondary-medium();
+
+        @include regular{
+            width: 70%;
+        }
+    }
+    .button--primary {
+        margin-top: 1.5rem;
+    }
+
+}
+/* Fin Contac Team */
